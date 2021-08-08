@@ -13,10 +13,10 @@ Plugin 'scrooloose/nerdtree'
 
 "python sytax checker
 Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
+Plugin 'tell-k/vim-autopep8'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 ""code folding
@@ -36,6 +36,10 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'szw/vim-maximizer'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+
 call vundle#end()
 
 " NERDTree conf
@@ -145,3 +149,25 @@ set nu rnu
 
 autocmd FileType python map <buffer> <F9> :w<CR>:exec cd pwd <CR> '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" reset the cursor on start (for older versions of vim, usually not required)
+" augroup myCmds
+" au!
+" autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
+"
+
+autocmd FileType python setlocal completeopt-=preview
+
+"DocString stuff
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:ultisnips_python_style = 'numpy'
+
+let g:pydocstring_doq_path = "/home/pablo/anaconda3/envs/meals_bot/bin/doq"
+let g:pydocstring_formatter = 'numpy'
