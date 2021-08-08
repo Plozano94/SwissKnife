@@ -39,6 +39,7 @@ Plugin 'szw/vim-maximizer'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plugin '907th/vim-auto-save'
 
 call vundle#end()
 
@@ -147,9 +148,6 @@ inoremap jj <ESC>
 
 set nu rnu
 
-nnoremap gj ]c
-nnoremap gk [c
-
 autocmd FileType python map <buffer> <F9> :w<CR>:exec cd pwd <CR> '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
@@ -174,3 +172,6 @@ let g:ultisnips_python_style = 'numpy'
 
 let g:pydocstring_doq_path = "/home/pablo/anaconda3/envs/meals_bot/bin/doq"
 let g:pydocstring_formatter = 'numpy'
+
+set so=999
+let g:auto_save = 1  " enable AutoSave on Vim startup
