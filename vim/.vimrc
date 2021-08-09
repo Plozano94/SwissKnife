@@ -183,3 +183,4 @@ map <Leader>vp :VimuxPromptCommand<CR>
 
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
+nmap <silent> <C-_> <Plug>(pydocstring)
