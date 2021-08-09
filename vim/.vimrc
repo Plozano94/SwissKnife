@@ -40,6 +40,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plugin '907th/vim-auto-save'
+Plugin 'preservim/vimux'
 
 call vundle#end()
 
@@ -110,11 +111,6 @@ autocmd FileType python set foldmethod=indent
 nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
 
-" Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
 
 syntax on
 colorscheme onedark
@@ -174,4 +170,16 @@ let g:pydocstring_doq_path = "/home/pablo/anaconda3/envs/meals_bot/bin/doq"
 let g:pydocstring_formatter = 'numpy'
 
 set so=999
-let g:auto_save = 1  " enable AutoSave on Vim startup
+"let g:auto_save = 1  " enable AutoSave on Vim startup
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
